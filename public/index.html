@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>IJG Labs / Educators</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script>
+    document.documentElement.dataset.theme = localStorage.getItem('ijg-educator-list-theme') || 'dark';
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to application</a>
+  <header class="site-header">
+    <a class="mark" href="/">IJG LABS<br>EDUCATORS</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="https://ijglabs.ai">ijglabs.ai</a>
+      <a href="https://gallery.ijglabs.ai">gallery.ijglabs.ai</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle theme">light</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="grid-section hero" id="educator-access">
+      <p class="kicker">00 / educator access</p>
+      <h1>Educator access to ijglabs.</h1>
+      <div class="hero-meta" aria-label="Service metadata">
+        <p><span>program</span> educator whitelist</p>
+        <p><span>host</span> educator-list.ijglabs.ai</p>
+        <p><span>status</span> accepting applications</p>
+      </div>
+      <p class="lead">ijglabs is building a whitelist of educators and academic administrators who want to use the platform to teach creative coding, creative computing, computer science, generative media, AI literacy, digital art, design technology, and related courses or programs.</p>
+    </section>
+
+    <section class="grid-section" id="about-ijglabs">
+      <p class="section-number">01</p>
+      <h2>About ijglabs</h2>
+      <div class="copy verbatim">
+        <p>ijglabs is a fully AI-mediated platform for creative computation. It supports learning and production across code, image, video, 3D, generative systems, and AI-assisted creative development. Because the platform relies on AI inference and media-generation services, there are real computational costs associated with platform use.</p>
+        <p>The project extends more than 30 years of research, development, teaching, and creative practice in creative computing. It builds on Ira Greenberg's long-standing work in creative coding, computational art, and computer science pedagogy, including his early contributions to the Processing community and his three books on creative coding and computational media.</p>
+        <p>At its core, ijglabs is based on the belief that code, algorithmic thinking, creativity, and AI literacy are now fundamental capabilities for students of all backgrounds. Creative coding originally helped make computation more accessible, expressive, and personally meaningful. ijglabs extends that lineage into the AI era.</p>
+        <p>AI is not treated as a replacement for human creativity or learning. Instead, it functions as a human-capacity multiplier: a scaffold for exploration, iteration, reflection, and deeper engagement with computational ideas.</p>
+        <p>ijglabs champions a new integrated pedagogy:</p>
+        <p class="display-callout">Creative Coding + AI</p>
+        <p class="caption">pedagogy / continuum</p>
+        <p>This approach connects the history of creative computation with the emerging possibilities of AI-mediated learning, giving students a powerful path into computation as both a personal and professional medium.</p>
+      </div>
+    </section>
+
+    <section class="grid-section" id="cost-note">
+      <p class="section-number">02</p>
+      <h2>Inference cost note</h2>
+      <div class="callout copy">
+        <p>ijglabs is a fully AI-mediated platform for creative computation. It supports learning and production across code, image, video, 3D, generative systems, and AI-assisted creative development. Because the platform relies on AI inference and media-generation services, there are real computational costs associated with platform use.</p>
+      </div>
+    </section>
+
+    <section class="grid-section" id="who-can-apply">
+      <p class="section-number">03</p>
+      <h2>Who can apply</h2>
+      <div class="copy">
+        <p>Educators may teach at any level, including K–12, community college, undergraduate, graduate, continuing education, executive education, or informal learning programs. Applicants should have an institutional affiliation and use an educational or institutional email address when possible.</p>
+      </div>
+    </section>
+
+    <section class="grid-section" id="application">
+      <p class="section-number">04</p>
+      <h2>Application</h2>
+      <div class="form-wrap" id="application-shell">
+        <form id="application-form" novalidate>
+          <div class="form-group" data-mode="educator">
+            <p class="group-label">04.a / required</p>
+            <div class="form-grid two-col">
+              <label class="field"><span>Name</span><input name="name" autocomplete="name" required></label>
+              <label class="field"><span>Email <em>institutional/educational where possible</em></span><input name="email" type="email" autocomplete="email" required><small class="soft-note" id="email-note"></small></label>
+              <label class="field"><span>Title or role</span><input name="title" required></label>
+              <label class="field"><span>Institution or organization</span><input name="institution" required></label>
+              <label class="field span-2"><span>Expected use case</span><textarea name="use_case" rows="6" required></textarea></label>
+            </div>
+          </div>
+
+          <div class="form-group" data-mode="educator">
+            <p class="group-label">04.b / optional</p>
+            <div class="form-grid two-col">
+              <label class="field"><span>Expected number of students served</span><input name="expected_students" type="number" min="0" max="100000" step="1" inputmode="numeric"></label>
+              <fieldset class="radio-field">
+                <legend>Does your institution have any budget to support platform use?</legend>
+                <label><input type="radio" name="institution_budget" value="yes"> yes</label>
+                <label><input type="radio" name="institution_budget" value="no"> no</label>
+                <label><input type="radio" name="institution_budget" value="unsure"> unsure</label>
+                <label><input type="radio" name="institution_budget" value="prefer not to say"> prefer not to say</label>
+              </fieldset>
+              <label class="field span-2"><span>Additional context</span><textarea name="notes" rows="4"></textarea></label>
+            </div>
+          </div>
+
+          <div class="form-group supporter-toggle-group">
+            <p class="group-label">04.c / not an educator</p>
+            <button class="supporter-toggle" id="supporter-toggle" type="button" aria-expanded="false">+ I'm not an educator but want to support the project</button>
+          </div>
+
+          <div class="form-group supporter-fields" id="supporter-fields" hidden>
+            <div class="form-grid two-col">
+              <label class="field"><span>Name</span><input name="supporter_name" autocomplete="name"></label>
+              <label class="field"><span>Email</span><input name="supporter_email" type="email" autocomplete="email"></label>
+              <label class="field span-2"><span>How would you like to support, advise, fund, partner with, or contribute to the project?</span><textarea name="supporter_interest" rows="6"></textarea></label>
+              <label class="field span-2"><span>Additional notes</span><textarea name="supporter_notes" rows="4"></textarea></label>
+            </div>
+          </div>
+
+          <div class="server-banner" id="server-error" role="alert" hidden></div>
+          <button class="primary-button" id="submit-button" type="submit">Send application</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="grid-section" id="about-project">
+      <p class="section-number">05</p>
+      <h2>About the project</h2>
+      <div class="copy verbatim">
+        <p>The project extends more than 30 years of research, development, teaching, and creative practice in creative computing. It builds on Ira Greenberg's long-standing work in creative coding, computational art, and computer science pedagogy, including his early contributions to the Processing community and his three books on creative coding and computational media.</p>
+        <p>At its core, ijglabs is based on the belief that code, algorithmic thinking, creativity, and AI literacy are now fundamental capabilities for students of all backgrounds. Creative coding originally helped make computation more accessible, expressive, and personally meaningful. ijglabs extends that lineage into the AI era.</p>
+        <p>AI is not treated as a replacement for human creativity or learning. Instead, it functions as a human-capacity multiplier: a scaffold for exploration, iteration, reflection, and deeper engagement with computational ideas.</p>
+        <p>ijglabs champions a new integrated pedagogy:</p>
+        <p>This approach connects the history of creative computation with the emerging possibilities of AI-mediated learning, giving students a powerful path into computation as both a personal and professional medium.</p>
+        <p class="display-callout closing">Creative Coding + AI</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Submissions are stored privately and used only to evaluate access. Contact: <a href="mailto:educators@ijglabs.ai">educators@ijglabs.ai</a></p>
+    <a href="https://github.com/irajgreenberg/ijglabs-educator-list">GitHub</a>
+  </footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
