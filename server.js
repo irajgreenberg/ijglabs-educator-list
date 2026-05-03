@@ -7,6 +7,7 @@ const express = require('express');
 const cors = require('cors');
 const Database = require('better-sqlite3');
 const nodemailer = require('nodemailer');
+const { buildRouter: buildAdminRouter, migrateSchema: migrateAdminSchema, config: adminConfig } = require('./admin');
 
 const app = express();
 const PORT = Number(process.env.PORT || 3220);
@@ -45,6 +46,12 @@ db.exec(`
   );
   CREATE INDEX IF NOT EXISTS idx_applications_submitted_at ON applications(submitted_at);
 `);
+
+migrateAdminSchema(db);
+
+if (!adminConfig.ready && process.env.NODE_ENV !== 'test') {
+  console.log('Admin not configured — set ADMIN_EMAILS, ADMIN_PASSWORD (>=8), SESSION_SECRET (>=32) to enable /admin');
+}
 
 function smtpConfigComplete() {
   return ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASS', 'SMTP_FROM', 'NOTIFY_TO'].every((key) => (process.env[key] || '').trim());
@@ -239,6 +246,8 @@ app.get('/api/applications.csv', (req, res) => {
   const csv = [columns.join(','), ...rows.map((row) => columns.map((column) => csvEscape(row[column])).join(','))].join('\n') + '\n';
   res.type('text/csv').send(csv);
 });
+
+app.use('/admin', buildAdminRouter(db));
 
 app.get('/', (req, res) => res.sendFile(path.join(PUBLIC_DIR, 'index.html')));
 
